@@ -7,12 +7,14 @@ const App = () => {
   return (
     <BrowserRouter>
       <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/Profile" element={<Profile />} />
-      </Routes>
+      <div className="w-full h-full">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/Profile" element={<Profile />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 };

@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { DashboardMain, SideBar } from "../components";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Dashboard = () => {
-  return <div>Dashboard</div>;
+  const navigate = useNavigate();
+  const currentUser = useSelector((state) => state.userAuth.currentUser);
+
+  useEffect(() => {
+    if (!currentUser) navigate("/login");
+  }, [currentUser]);
+
+  return (
+    <div className="flex ">
+      <SideBar />
+      <DashboardMain />
+    </div>
+  );
 };
 
 export default Dashboard;
