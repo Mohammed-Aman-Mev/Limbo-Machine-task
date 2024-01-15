@@ -1,10 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const user_OK = JSON.parse(localStorage.getItem("myUser"));
+
 const initialState = {
-  currentUser: null,
+  currentUser: user_OK ? user_OK : null,
   users: [
-    { username: "aman1", password: "amanpassword1" },
-    { username: "aman2", password: "amanpassword2" },
+    { username: "aman1", password: "12345" },
+    { username: "aman2", password: "67890" },
   ],
 };
 
@@ -16,8 +18,9 @@ const authSlice = createSlice({
       state.users.map((data) => {
         if (action.payload.username === data.username) {
           state.currentUser = true;
+          localStorage.setItem("myUser", JSON.stringify(action.payload));
+
           return;
-        } else {
         }
       });
     },

@@ -12,7 +12,7 @@ const Dashboard = () => {
   }, [currentUser]);
 
   return (
-    <div className="flex ">
+    <div className="flex justify-between">
       <SideBar />
       <DashboardMain />
     </div>

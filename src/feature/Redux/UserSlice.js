@@ -2908,7 +2908,13 @@ export const userData = createSlice({
   initialState,
   reducers: {
     filterdata: (state, action) => {
-      console.log(state);
+      state = state.filter((i) => {
+        if (
+          i.name === action.payload.name &&
+          i.amount === action.payload.amount 
+        )
+          return i;
+      });
     },
   },
 });

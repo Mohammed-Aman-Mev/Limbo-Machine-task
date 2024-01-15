@@ -27,11 +27,12 @@ const LoginPage = () => {
     <div className="flex items-center justify-center w-full pt-[100px]">
       <form
         action=""
-        className="flex flex-col gap-5 bg-neutral-800 p-[20px] rounded-lg"
+        className="flex flex-col gap-5 bg-neutral-800 p-[50px] rounded-lg"
         onSubmit={(e) => userdata(e)}
       >
+        <h1 className="text-center text-xl font-semibold text-white">Log In</h1>
         <input
-          className="w-[220px] p-2"
+          className="w-[220px] p-2 rounded-sm"
           type="text"
           required
           placeholder="Username"
@@ -41,7 +42,7 @@ const LoginPage = () => {
           }
         />
         <input
-          className="w-[220px] p-2"
+          className="w-[220px] p-2 rounded-sm"
           type="password"
           required
           placeholder="Password"
@@ -52,7 +53,7 @@ const LoginPage = () => {
         />
         <button
           type="submit"
-          className="text-white hover:bg-blue-500 p-2 rounded-md"
+          className="bg-white  hover:bg-blue-500 font-semibold hover:text-white p-2 rounded-md"
         >
           Log In
         </button>

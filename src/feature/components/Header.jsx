@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { logOut } from "../Redux/authSlice";
 
 const Header = () => {
+  const data = useSelector((state) => state.userReducer);
   const currentUser = useSelector((state) => state.userAuth.currentUser);
+
+  const [currentUser1, setCurrentUser1] = useState("Machine Task");
   const dispatch = useDispatch();
 
   const userLogout = () => {
     dispatch(logOut());
+    localStorage.removeItem("myUser");
+    setCurrentUser1("Machinne Task");
   };
   const arr = [
     {
@@ -24,11 +29,18 @@ const Header = () => {
     },
   ];
 
-  const data = useSelector((state) => state.userReducer);
+  // console.log(currentUser1);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     setCurrentUser1(currentUser===Object ? currentUser.username : currentUser1);
+  //   }, 2000);
+  // }, [currentUser]);
 
   return (
-    <nav className="sticky top-0 w-full h-[50px] px-1 flex items-center justify-between bg-gray-600 rounded-sm">
-      <h3> Machine task</h3>
+    <nav className="sticky top-0 w-full h-[50px] px-1 sm:px-[20px] flex items-center justify-between bg-gray-600 rounded-sm">
+      <h3 className="font-bold text-white">
+        {currentUser ? currentUser.username : currentUser1}
+      </h3>
       <div className="flex items-center gap-3">
         {arr.map((item, index) => {
           return (
